@@ -16,11 +16,8 @@
   <name>petclinic</name>
 
   <properties>
-
-    <!-- Generic properties -->
     <java.version>23</java.version>
 
-    <!-- Web dependencies -->
     <webjars-locator.version>1.0.1</webjars-locator.version>
     <webjars-bootstrap.version>5.3.3</webjars-bootstrap.version>
     <webjars-font-awesome.version>4.7.0</webjars-font-awesome.version>
