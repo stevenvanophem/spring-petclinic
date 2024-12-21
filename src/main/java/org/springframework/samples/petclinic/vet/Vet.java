@@ -32,6 +32,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlElement;
+import org.springframework.samples.petclinic.specialty.Specialty;
 
 
 @Entity
