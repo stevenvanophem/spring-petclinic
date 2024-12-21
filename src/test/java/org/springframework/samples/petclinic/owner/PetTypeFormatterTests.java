@@ -33,11 +33,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-/**
- * Test class for {@link PetTypeFormatter}
- *
- * @author Colin But
- */
+
 @ExtendWith(MockitoExtension.class)
 @DisabledInNativeImage
 class PetTypeFormatterTests {
@@ -75,10 +71,7 @@ class PetTypeFormatterTests {
 		});
 	}
 
-	/**
-	 * Helper method to produce some sample pet types just for test purpose
-	 * @return {@link Collection} of {@link PetType}
-	 */
+
 	private List<PetType> makePetTypes() {
 		List<PetType> petTypes = new ArrayList<>();
 		petTypes.add(new PetType() {

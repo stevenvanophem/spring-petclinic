@@ -20,12 +20,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-/**
- * Test class for {@link CrashController}
- *
- * @author Colin But
- * @author Alex Lutz
- */
+
 // Waiting https://github.com/spring-projects/spring-boot/issues/5574 ..good
 // luck ((plain(st) UNIT test)! :)
 class CrashControllerTests {
