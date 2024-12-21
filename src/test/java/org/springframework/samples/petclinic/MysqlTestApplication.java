@@ -40,7 +40,7 @@ public class MysqlTestApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(PetClinicApplication.class, "--spring.profiles.active=mysql");
+		SpringApplication.run(Application.class, "--spring.profiles.active=mysql");
 	}
 
 }

@@ -57,7 +57,7 @@ public class PetClinicIntegrationTests {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(PetClinicApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
