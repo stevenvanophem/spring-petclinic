@@ -185,17 +185,9 @@
           </execution>
         </executions>
       </plugin>
-
-      <!-- Spring Boot Actuator displays sbom-related information if a CycloneDX SBOM file is
-      present at the classpath -->
-      <plugin>
-        <?m2e ignore?>
-        <groupId>org.cyclonedx</groupId>
-        <artifactId>cyclonedx-maven-plugin</artifactId>
-      </plugin>
-
     </plugins>
   </build>
+
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
