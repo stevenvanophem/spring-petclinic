@@ -15,8 +15,12 @@
  */
 package org.springframework.samples.petclinic.owner;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.samples.petclinic.model.BaseEntity;
 
@@ -28,7 +32,11 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "visits")
-public class Visit extends BaseEntity {
+public class Visit implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@Column(name = "visit_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -37,9 +45,16 @@ public class Visit extends BaseEntity {
 	@NotBlank
 	private String description;
 
-
 	public Visit() {
 		this.date = LocalDate.now();
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public LocalDate getDate() {
@@ -56,6 +71,10 @@ public class Visit extends BaseEntity {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public boolean isNew() {
+		return this.id == null;
 	}
 
 }
