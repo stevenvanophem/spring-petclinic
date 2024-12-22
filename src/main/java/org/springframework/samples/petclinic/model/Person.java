@@ -16,12 +16,21 @@
 package org.springframework.samples.petclinic.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotBlank;
 
+import java.io.Serializable;
+
 
 @MappedSuperclass
-public class Person extends BaseEntity {
+public class Person implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@Column(name = "first_name")
 	@NotBlank
@@ -30,6 +39,14 @@ public class Person extends BaseEntity {
 	@Column(name = "last_name")
 	@NotBlank
 	private String lastName;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getFirstName() {
 		return this.firstName;
@@ -45,6 +62,10 @@ public class Person extends BaseEntity {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public boolean isNew() {
+		return this.id == null;
 	}
 
 }
