@@ -29,7 +29,6 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
-import org.springframework.samples.petclinic.model.Person;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
