@@ -15,12 +15,18 @@
  */
 package org.springframework.samples.petclinic.vet;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.samples.petclinic.model.Person;
@@ -37,7 +43,19 @@ import org.springframework.samples.petclinic.specialty.Specialty;
 
 @Entity
 @Table(name = "vets")
-public class Vet extends Person {
+public class Vet implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Column(name = "first_name")
+	@NotBlank
+	private String firstName;
+
+	@Column(name = "last_name")
+	@NotBlank
+	private String lastName;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "vet_specialties", joinColumns = @JoinColumn(name = "vet_id"),
@@ -64,6 +82,34 @@ public class Vet extends Person {
 
 	public void addSpecialty(Specialty specialty) {
 		getSpecialtiesInternal().add(specialty);
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public boolean isNew() {
+		return this.id == null;
 	}
 
 }
